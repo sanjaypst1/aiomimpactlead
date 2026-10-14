@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #0b1f33;
+  --navy-deep: #061525;
+  --cream: #f7f4ef;
+  --teal: #2a6f6a;
+  --blue: #3b6b8c;
+  --violet: #5b4b7a;
+  --amber: #c4872a;
+  --coral: #c45c4a;
+  --green: #3f7a5a;
+  --ink: #1a2330;
+  --muted: #5c6675;
+  --line: #d9d2c8;
+
+  --background: var(--cream);
+  --foreground: var(--ink);
+  --surface: #fffdf9;
+  --surface-elevated: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-navy-deep: var(--navy-deep);
+  --color-cream: var(--cream);
+  --color-teal: var(--teal);
+  --color-blue: var(--blue);
+  --color-violet: var(--violet);
+  --color-amber: var(--amber);
+  --color-coral: var(--coral);
+  --color-green: var(--green);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --font-sans: var(--font-ibm-plex-sans);
+  --font-serif: var(--font-source-serif);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--teal) 25%, transparent);
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--navy);
+  color: var(--cream);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+}
+
+.prose-playbook {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+.prose-playbook h2,
+.prose-playbook h3 {
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.prose-playbook a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-playbook a:hover {
+  color: var(--blue);
+}
+
+.disclaimer-banner {
+  background: color-mix(in srgb, var(--amber) 12%, var(--surface));
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.page-shell {
+  flex: 1;
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+@media (min-width: 768px) {
+  .page-shell {
+    padding-inline: 2rem;
+  }
+}
